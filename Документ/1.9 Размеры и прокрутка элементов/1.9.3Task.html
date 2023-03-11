@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #field {
+          width: 200px;
+          border: 10px groove black;
+          background-color: #00FF00;
+          position: relative;
+        }
+    
+        #ball {
+          position: absolute;
+        }
+    </style>
+    <title>1.9.3 Task</title>
+</head>
+<body>
+    <div id="field">
+        <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <script>
+        // const ball = document.querySelector('#ball')
+        // const field = document.querySelector('#field')
+
+        const widthField = field.clientWidth
+        const heightField = field.clientHeight
+
+        const widthBall = ball.clientWidth
+        const heightBall = ball.clientHeight
+
+        ball.style.top = `${heightField/2 - heightBall/2}px`
+        ball.style.left = `${widthField/2 - widthBall/2}px`
+    </script>
+</body>
+</html>

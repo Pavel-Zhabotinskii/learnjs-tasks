@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.4.1 Task</title>
+</head>
+<body>
+    <form name="search">
+        <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Поиск на сайте:
+          </font></font><input type="text" name="search">
+        </label>
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Поиск!"></font></font>
+    </form>
+    <hr>
+    <form name="search-person"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        Поиск посетителей:
+        </font></font><table id="age-table">
+          <tbody><tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Возраст:</font></font></td>
+            <td id="age-list">
+              <label>
+                <input type="radio" name="age" value="young"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">меньше 18</font></font></label>
+              <label>
+                <input type="radio" name="age" value="mature"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18-50</font></font></label>
+              <label>
+                <input type="radio" name="age" value="senior"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">более 50</font></font></label>
+            </td>
+          </tr>
+    
+          <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Кроме того:</font></font></td>
+            <td>
+              <input type="text" name="info[0]">
+              <input type="text" name="info[1]">
+              <input type="text" name="info[2]">
+            </td>
+          </tr>
+    
+        </tbody></table>
+    
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Поиск!"></font></font>
+    </form>
+    <script>
+        const table = document.getElementById('age-table')
+
+        const labels = document.querySelectorAll('#age-table label')
+
+        const td = table.querySelector('td')
+
+        const form = document.getElementsByName('search')[0]
+
+        const inputOne = form.querySelector('input')
+
+        const inputs = form.querySelectorAll('input')
+        const lastInput = inputs[inputs.length-1]
+        console.log(table,labels, td,form,inputOne,lastInput)
+    </script>
+</body>
+</html>

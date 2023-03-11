@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.7.7 Task</title>
+</head>
+<body>
+    <div>
+
+    </div>
+
+    <script>
+        function createCalendar(elem, year, month){
+
+            let table = document.createElement('table');
+            let trh = `<tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>`;
+            table.innerHTML = trh;
+
+            let now = new Date(year, month-1);
+
+            let allDays = new Date(year,month,-1).getDate()+1;
+            let firstDayWeek = now.getDay();
+            let days = 1;
+            let swith = false;
+
+            for (let j = 0; j < 5; j++) {
+                let tr = document.createElement('tr');
+                for (let i = 0; i <= 6; i++) {
+                    let td = document.createElement('td');
+
+                    if(swith && allDays >= days){
+                        td.textContent = days;
+                        tr.append(td);
+                        days++;
+                    }else if(i + 1 >= firstDayWeek && allDays >= days){
+                        td.textContent = days;
+                        tr.append(td);
+                        days++;
+                    }else{
+                        tr.append(td);
+                    };
+
+                };
+
+                swith = true;
+                table.append(tr);
+            };
+
+            elem.append(table);
+        }
+
+        let container = document.querySelector('div')
+        createCalendar(container, 2012, 9)
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #field {
+          width: 200px;
+          height: 150px;
+          border: 10px solid black;
+          background-color: #00FF00;
+          cursor: pointer;
+          overflow: hidden;
+          position: relative;
+        }
+
+        #ball {
+        position: absolute;
+        left: 0; 
+        top: 0;
+        transition: 1s all; 
+        }
+    </style>
+    <title>2.1.4 Task</title>
+</head>
+<body style="height:2000px">
+
+    Нажмите на поле для перемещения мяча.
+    <br> Мяч не должен выходить за границы поля.
+  
+  
+    <div id="field">
+      <img src="https://ru.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <script>
+        field.addEventListener('click', (event) => {
+            const coordsField = event.target.getBoundingClientRect()
+            const x = event.clientX
+            const y = event.clientY
+
+            const coordsBall = {
+                top: y - coordsField.top - field.clientTop - ball.clientHeight / 2,
+                left: x - coordsField.left - field.clientLeft - ball.clientWidth / 2
+            }
+
+            if (coordsBall.top < 0) coordsBall.top = 0
+            if (coordsBall.left < 0) coordsBall.left = 0
+
+
+            if (coordsBall.left + ball.clientWidth > field.clientWidth) {
+                coordsBall.left = field.clientWidth - ball.clientWidth
+            }
+            if (coordsBall.top + ball.clientHeight > field.clientHeight) {
+                coordsBall.top = field.clientHeight - ball.clientHeight
+            }
+
+            ball.style.left = coordsBall.left + 'px';
+            ball.style.top = coordsBall.top + 'px';
+
+        })
+    </script>
+</body>
+</html>

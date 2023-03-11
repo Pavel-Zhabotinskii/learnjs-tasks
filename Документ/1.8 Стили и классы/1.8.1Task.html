@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .notification{
+            position: absolute;
+            z-index: 1;
+            border: 2px solid black;
+            width: 100px;
+            height: 30px;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body{
+            position: relative;
+            min-height: 100px;
+        }
+    </style>
+    <title>1.8.1 Task</title>
+</head>
+<body>
+
+
+    <script>
+        let options =  {
+            top: 10,
+            right: 10,
+            html: "Hello!",
+            className: "welcome"
+        }
+        function showNotification (options) {
+            const div = document.createElement('div')
+            div.classList.add('notification')
+            div.innerHTML = options.html
+            if (options.className) {
+                div.classList.add(options.className);
+            }
+
+            div.style.top = options.top + 'px';
+            div.style.right = options.right + 'px';
+
+            document.body.append(div)
+            setTimeout(() => div.remove(), 1500);
+        }
+
+        showNotification(options)
+    </script>
+</body>
+</html>

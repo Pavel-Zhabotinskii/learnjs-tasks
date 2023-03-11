@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.2.1 Task</title>
+    <style>
+        div{
+            margin: 0 auto;
+            width: 400px;
+            height: 200px;
+            background: #ccc;
+            padding: 10px;
+        }
+        div:focus{
+            border: 2px solid green;
+        }
+        textarea{
+            display: block;
+            margin: 0 auto;
+            width: 400px;
+            height: 200px;
+            background: #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div tabindex="-1">
+
+    </div>
+
+    <script>
+        const div = document.querySelector('div')
+        let textarea = document.createElement('textarea')
+
+        div.addEventListener('focus', ev => {
+            div.remove()
+            textarea.value = div.innerHTML;
+            document.body.append(textarea)
+            textarea.onkeydown = function(event) {
+                if (event.key == 'Enter') {
+                this.blur();
+                }
+            };
+        })
+
+        textarea.addEventListener('blur', ev => {
+            div.innerHTML = textarea.value
+            textarea.remove()
+            document.body.append(div)
+        })
+    </script>
+</body>
+</html>

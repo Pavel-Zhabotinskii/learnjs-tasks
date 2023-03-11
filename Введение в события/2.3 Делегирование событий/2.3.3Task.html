@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    table {
+       border-collapse: collapse;
+     }
+     th, td {
+       border: 1px solid black;
+       padding: 4px;
+     }
+     th {
+       cursor: pointer;
+     }
+     th:hover {
+       background: yellow;
+     }
+  </style>
+</head>
+
+<body>
+
+  <table id="grid">
+    <thead>
+      <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>Вася</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Петя</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Женя</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Маша</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Илья</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    grid.addEventListener('click', ev => {
+        let tbody = grid.querySelector('tbody');
+        let s
+        let arrRows = Array.from(tbody.rows);
+        if(ev.target.dataset.type == "string"){
+            s = (rowA,rowB) => {
+                return rowA.cells[ev.target.cellIndex].innerHTML > rowB.cells[ev.target.cellIndex].innerHTML ? 1 : -1
+            }
+        }
+        if(ev.target.dataset.type == "number"){
+            s = (rowA,rowB) => {
+                return rowA.cells[ev.target.cellIndex].innerHTML - rowB.cells[ev.target.cellIndex].innerHTML
+            }
+        }
+
+        arrRows.sort(s);
+
+        tbody.append(...arrRows);
+
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.5.1 Task</title>
+</head>
+<body>
+    <ul>
+        <li>Животные
+          <ul>
+            <li>Млекопитающие
+              <ul>
+                <li>Коровы</li>
+                <li>Ослы</li>
+                <li>Собаки</li>
+                <li>Тигры</li>
+              </ul>
+            </li>
+            <li>Другие
+              <ul>
+                <li>Змеи</li>
+                <li>Птицы</li>
+                <li>Ящерицы</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Рыбы
+          <ul>
+            <li>Аквариумные
+              <ul>
+                <li>Гуппи</li>
+                <li>Рыба-ангел</li>
+              </ul>
+            </li>
+            <li>Морские
+              <ul>
+                <li>Морская форель</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    </ul>
+    <script>
+        const ul = document.body.firstElementChild
+        const arrLi = []
+        console.log(ul)
+        for (let li of ul.querySelectorAll('li')) {
+            console.log(li)
+            arrLi.push(li.firstChild.data)
+        }
+        arrLi.forEach(element => console.log(element));
+        console.log(ul.querySelectorAll('li').length)
+    </script>
+</body>
+</html>

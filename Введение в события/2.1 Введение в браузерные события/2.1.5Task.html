@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    ul{
+        display: none;
+    }
+  </style>
+</head>
+<body>
+
+ <div data-open="0"><span>▶</span> <span style="display: none;">▼</span> Сладости (нажми меня)!</div>
+  <ul>
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+
+  <script>
+    let btn = document.querySelector('div')
+    let arrows = document.querySelectorAll('span')
+    let ul = document.querySelector('ul')
+
+    btn.addEventListener('click', (event) => {
+        if(event.target.dataset.open === '0') {
+            ul.style.display='block'
+            arrows[0].style.display='none'
+            arrows[1].style.display='inline'
+            event.target.dataset.open = '1'
+        } else{
+            ul.style.display='none'
+            arrows[0].style.display='inline'
+            arrows[1].style.display='none'
+            event.target.dataset.open = '0'
+        }
+    })
+
+
+  </script>
+
+</body>
+</html>
